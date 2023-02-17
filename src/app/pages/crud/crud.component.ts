@@ -32,7 +32,6 @@ export class CrudComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form.value);
     this._loaderService.show();
     this._homeworksService.create(this.form.value).subscribe((data) => {
       this.homeworks.push(data)
