@@ -43,6 +43,7 @@
     background-color: white;
     color: #000000de;
     height: 48px;
+    box-shadow: 0px 3px 6px #00000029;
   }
   .second-section {
     .table-title {
@@ -110,8 +111,17 @@
   }
 }
 :host ::ng-deep {
+  .p-checkbox-box {
+    background-color: #EFEFEF;
+    border: 1px solid #979797;
+    border-radius: 3px;
+    &.p-highlight {
+      border: none;
+      background: #11806a;
+    }
+  }
   .p-paginator .p-paginator-pages .p-paginator-page {
-    font-family: 'Roboto Bold';
+    font-family: "Roboto Bold";
     min-width: 0;
     width: 30px;
     height: 41px;
@@ -125,14 +135,15 @@
       background: #ffc183 0% 0% no-repeat padding-box;
     }
   }
-  .p-paginator-next, .p-paginator-prev {
+  .p-paginator-next,
+  .p-paginator-prev {
     font-size: 20px;
     color: #3db0e3;
   }
-  .p-paginator-icon{
+  .p-paginator-icon {
     font-size: 25px;
   }
-  .p-disabled{
-    color: #D0D0D0;
+  .p-disabled {
+    color: #d0d0d0;
   }
 }
