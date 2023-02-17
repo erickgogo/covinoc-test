@@ -1,0 +1,45 @@
+.spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: #f0f0f4;
+  opacity: 50%;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  z-index: 99999999;
+  top: 0;
+}
+.repo-link{
+    position: absolute;
+    bottom: 70px;
+    right: 70px;
+}
+.git-hub {
+  width: 56px;
+  height: 56px;
+  background: #cc58e7;
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  box-shadow: 3px 3px 10px #00000059;
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover{
+    background: #30dbc5;
+  }
+}
+:host ::ng-deep {
+  .p-toast-message-custom {
+    background-color: #e1cfe7;
+    border: solid #8a427a;
+    border-width: 0 0 0 6px;
+    color: #2c1e30;
+    .p-toast-icon-close {
+      color: #2c1e30;
+    }
+  }
+}

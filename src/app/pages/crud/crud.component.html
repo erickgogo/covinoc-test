@@ -1,0 +1,95 @@
+<div class="crud-container flex flex-column p-0 w-full h-full">
+  <div
+    class="first-section w-full flex justify-content-center align-items-center"
+  >
+    <div class="col-10 h-full">
+      <div class="w-full flex align-items-center mt-3">
+        <span class="material-symbols-outlined class text-3xl"> add </span>
+        <p>Nueva tarea</p>
+      </div>
+      <div class="flex flex-row" [formGroup]="form">
+        <div class="flex flex-column col-6">
+          <label for="">Título</label>
+          <input
+            id="float-input"
+            type="text"
+            class="name-input"
+            placeholder="Ingrese título..."
+            formControlName="title"
+            (keyup.enter)="save()"
+          />
+        </div>
+        <div class="col-6 flex flex-row gap-3 justify-content-around pt-3">
+          <div class="flex gap-3 align" >
+            <p>Tarea completada</p>
+            <p-checkbox name="yourName" formControlName="state" [binary]="true"></p-checkbox>
+          </div>
+          <div class="flex">
+            <button
+              pButton
+              class="p-button p-button-rounded p-button-secondary button"
+              icon="pi pi-plus"
+              label="GUARDAR TAREA"
+              [disabled]="form.invalid"
+              (click)="save()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="second-section flex align-items-center justify-content-center">
+    <div class="col-10 h-full">
+      <div class="flex flex-column">
+        <div class="flex flex-row">
+          <div class="col-6 flex align-items-center gap-2 table-title">
+            <span class="material-symbols-outlined class text-3xl">
+              format_list_bulleted
+            </span>
+            <p>Nueva tarea</p>
+          </div>
+          <div class="col-6 flex justify-content-end">
+            <span class="p-input-icon-right">
+              <i class="search-icon"
+                ><span class="material-symbols-outlined"> search </span></i
+              >
+              <input type="text" class="search-bar" placeholder="Buscar..." (input)="filter($event.target)"/>
+            </span>
+          </div>
+        </div>
+        <div class="table">
+          <p-table #dt [value]="homeworks" [paginator]="true" [rows]="5" [totalRecords]="homeworks.length" [showFirstLastIcon]="false">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Id</th>
+                <th>Mis Tareas</th>
+                <th>Completada</th>
+                <th>Borrar</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-homework>
+              <tr >
+                <td>{{ homework.id }}</td>
+                <td [ngClass]="{ 'line-text': homework.state }">
+                  {{ homework.title }}
+                </td>
+                <td>
+                  <p-checkbox
+                    [(ngModel)]="homework.state"
+                    [binary]="true"
+                    (onChange)="update(homework)"
+                  ></p-checkbox>
+                </td>
+                <td class="flex align-items-center justify-content-center">
+                    <span class="material-symbols-outlined icon-trash " (click)="delete(homework)"> delete </span></td>
+              </tr>
+              <div class="flex  w-full border">
+                  <div class="line"></div>
+              </div>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
